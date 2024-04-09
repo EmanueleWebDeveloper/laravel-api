@@ -21,4 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get( '/test', [ProjectController::class, 'index' ] );
 
+//localhost:8000/api/test/{slug}
 Route::get( '/test/{slug}', [ProjectController::class, 'show' ] );
