@@ -23,3 +23,7 @@ Route::get( '/test', [ProjectController::class, 'index' ] );
 
 //localhost:8000/api/test/{slug}
 Route::get( '/test/{slug}', [ProjectController::class, 'show' ] );
+
+//localhost:8000/api/contacts
+
+Route::post( '/contacts', [ProjectController::class, 'store' ] );

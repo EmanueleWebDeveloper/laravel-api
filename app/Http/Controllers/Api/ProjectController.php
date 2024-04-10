@@ -31,20 +31,13 @@ class ProjectController extends Controller
 
     //modello con i collegamenti delle tabelle type e technologies dove viene visualizzato con lo slug e prende il primo risultato
     public function show( $slug ){
-        $project = Project::with('type', 'technologies')->where( 'slug', $slug )->first();
+        $project = Project::with('type', 'technologies')->where( 'slug', $slug )->firstOrFail();
 
         //se trova il risultato allora lo manda a visualizzare
-        if( $project ){
+
             return response()->json([
                 'success' => true,
-                'projects' => $project
+                'data' => $project
             ]);
-        } else{
-            //altrimenti da il messaggio di errore
-            return response()->json([
-                'success' => false,
-                'error' => "il progetto non esiste"
-            ]);
-        }
     }
 }
