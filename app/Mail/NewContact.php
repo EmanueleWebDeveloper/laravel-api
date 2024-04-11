@@ -17,9 +17,9 @@ class NewContact extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct($_lead)
+    public function __construct($lead)
     {
-        $this->lead = $_lead;
+        $this->lead = $lead;
     }
 
     /**
@@ -28,7 +28,7 @@ class NewContact extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            replyTo: $this->lead->address,
+            replyTo: $this->lead->email,
             subject: 'New Contact',
         );
     }
